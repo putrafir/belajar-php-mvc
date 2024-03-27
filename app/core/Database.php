@@ -71,4 +71,10 @@ class Database
         $this->execute();
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function rowCount()
+    {
+        // rowCount punya pdo mysql
+        return $this->stmt->rowCount();
+    }
 }
