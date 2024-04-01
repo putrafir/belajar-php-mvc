@@ -6,22 +6,39 @@
         </div>
     </div>
 
-    <div class="col-lg-6">
-        <button type="button" class="tombolTambahData btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
-            Tambah Data Mahasiswa
-        </button>
-        <br></br>
-        <h3>Daftar Mahasiswa</h3>
-        <ul class="list-group">
-            <?php foreach ($data['mhs'] as $mhs) : ?>
-                <li class="list-group-item ">
-                    <?= $mhs['nama'] ?>
-                    <a href="<?= BASEURL ?>/mahasiswa/hapus/<?= $mhs['id'] ?>" class="badge bg-danger text-bg-primary float-end ms-1" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">hapus</a>
-                    <a href="<?= BASEURL ?>/mahasiswa/update/<?= $mhs['id'] ?>" class="badge bg-warning text-bg-primary float-end ms-1 tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $mhs['id'] ?>">ubah</a>
-                    <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id'] ?>" class="badge text-bg-primary float-end ms-1">detail</a>
-                </li>
-            <?php endforeach ?>
-        </ul>
+    <div class="row mb-3">
+        <div class="col-lg-6">
+            <button type="button" class="tombolTambahData btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
+                Tambah Data Mahasiswa
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <form action="<?= BASEURL ?>/mahasiswa/cari" method="post">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="cari mahasiswa.." name="keyword" id="keyword">
+                    <button class="btn btn-primary" type="submit" id="tombolCari">Cari</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <h3>Daftar Mahasiswa</h3>
+            <ul class="list-group">
+                <?php foreach ($data['mhs'] as $mhs) : ?>
+                    <li class="list-group-item ">
+                        <?= $mhs['nama'] ?>
+                        <a href="<?= BASEURL ?>/mahasiswa/hapus/<?= $mhs['id'] ?>" class="badge bg-danger text-bg-primary float-end ms-1" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">hapus</a>
+                        <a href="<?= BASEURL ?>/mahasiswa/update/<?= $mhs['id'] ?>" class="badge bg-warning text-bg-primary float-end ms-1 tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $mhs['id'] ?>">ubah</a>
+                        <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id'] ?>" class="badge text-bg-primary float-end ms-1">detail</a>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+        </div>
     </div>
 </div>
 
